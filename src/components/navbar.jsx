@@ -1,10 +1,14 @@
-import { AppBar, Toolbar, Button, Box } from '@mui/material'
+import { AppBar, Toolbar, Button, Box , Typography } from '@mui/material'
 import {GitHub} from '@mui/icons-material'
 import {Link} from 'react-router-dom'
 export default function Navbar() {
   return (
     <AppBar position="static" color="transparent" elevation={0}>
-      <Toolbar sx={{ justifyContent: 'flex-end' }}>
+      <Toolbar sx={{ justifyContent: 'flex' }}>
+        <Typography variant="h6" fontWeight="800" fontSize={30}   component={Link} to="/" sx={{ textDecoration: 'none', color: 'inherit' }}>
+          Todomio
+        </Typography>
+        <Box sx={{ flexGrow: 1 }} />
         <Box sx={{ display: 'flex', gap: 4 }}>
             <Button color="inherit">
                 <GitHub />
