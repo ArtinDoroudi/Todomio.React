@@ -1,6 +1,6 @@
 import { Box, Typography, Button, Stack , Tab, Tabs, TextField} from '@mui/material'
 import { useState } from 'react'
-import Login from '@mui/icons-material/Login'
+import GroupAdd from '@mui/icons-material/GroupAdd'
 import {Link} from 'react-router-dom'
 
 export default function Form() {
@@ -20,7 +20,7 @@ export default function Form() {
     >
         <Stack spacing={3}>
           <Typography variant="h2" fontWeight="800">
-            Login
+            Register!
           </Typography>
           <Typography variant="h6" color="grey.500">
             Step into your productivity.
@@ -40,19 +40,21 @@ export default function Form() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Typography variant="h6" color="grey.500" fontSize={16}>
-            Forgot your password?
-            <Button variant="text" size="small">
-              Reset it
-            </Button>
-          </Typography>
-          <Button variant="contained" size="medium" endIcon={<Login />}>
-            Login
+          <TextField
+            id="outlined-basic"
+            label="Repeat Password"
+            variant="standard"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button variant="contained" size="medium" endIcon={<GroupAdd />}>
+            Register
           </Button>
           <Typography variant="h6" color="grey.500">
-            Don't have an account?
-            <Button variant="text" size="small" component={Link} to="/register">
-              Sign up
+            Already have an account?
+            <Button variant="text" size="small" component={Link} to="/login">
+              Log in
             </Button>
           </Typography>
       </Stack>
