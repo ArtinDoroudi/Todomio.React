@@ -18,7 +18,7 @@ export default function Form() {
         px: 2,
       }}
     >
-        <Stack spacing={3}>
+        <Stack spacing={3} sx={{ width: '100%', maxWidth: 400 }}>
           <Typography variant="h2" fontWeight="800">
             Login
           </Typography>
@@ -40,7 +40,7 @@ export default function Form() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Typography variant="h6" color="grey.500" fontSize={16}>
+          <Typography variant="body2" color="grey.500">
             Forgot your password?
             <Button variant="text" size="small">
               Reset it
@@ -49,7 +49,7 @@ export default function Form() {
           <Button variant="contained" size="medium" endIcon={<Login />}>
             Login
           </Button>
-          <Typography variant="h6" color="grey.500">
+          <Typography variant="body2" color="grey.600">
             Don't have an account?
             <Button variant="text" size="small" component={Link} to="/register">
               Sign up

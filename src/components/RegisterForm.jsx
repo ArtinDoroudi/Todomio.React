@@ -4,8 +4,20 @@ import GroupAdd from '@mui/icons-material/GroupAdd'
 import {Link} from 'react-router-dom'
 
 export default function Form() {
+
+    const handleRegister = () => {
+        if (password !== confirmPassword) {
+          alert('Passwords do not match!')
+          return
+        }
+      
+        console.log('Registering user:', email, password)
+        // Later: send to backend here
+      }
+      
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
 
   return (
     <Box
@@ -18,7 +30,7 @@ export default function Form() {
         px: 2,
       }}
     >
-        <Stack spacing={3}>
+        <Stack spacing={3} sx={{ width: '100%', maxWidth: 400 }}>
           <Typography variant="h2" fontWeight="800">
             Register!
           </Typography>
@@ -26,14 +38,14 @@ export default function Form() {
             Step into your productivity.
           </Typography>
           <TextField
-            id="outlined-basic"
+            id="email-input"
             label="Email"
             variant="standard"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
-            id="outlined-basic"
+            id="confirm-password-input"
             label="Password"
             variant="standard"
             type="password"
@@ -41,22 +53,21 @@ export default function Form() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <TextField
-            id="outlined-basic"
             label="Repeat Password"
             variant="standard"
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          <Button variant="contained" size="medium" endIcon={<GroupAdd />}>
+          <Button variant="contained" size="medium" endIcon={<GroupAdd />} onClick={handleRegister}>
             Register
           </Button>
-          <Typography variant="h6" color="grey.500">
-            Already have an account?
-            <Button variant="text" size="small" component={Link} to="/login">
-              Log in
+        <Typography variant="body2" color="grey.600">
+            Already have an account?{' '}
+            <Button component={Link} to="/login" size="small" variant="text">
+                Log in
             </Button>
-          </Typography>
+        </Typography>
       </Stack>
     </Box>
   )
