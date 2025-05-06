@@ -10,12 +10,12 @@ export default function Navbar() {
           Todomio
         </Typography>
         <Box sx={{ flexGrow: 1 }} />
-        <Box sx={{ display: 'flex', gap: 4 }}>
+        <Box sx={{ display: 'flex', gap: 2 }}>
             <Button color="inherit" component={Link} to="https://github.com/ArtinDoroudi/Todomio.React">
                 <GitHub />
                 <span style={{ marginLeft: '8px' }}>GitHub</span>
             </Button>
-          <Button color="inherit">Usage</Button>
+          <Button color="inherit" component={Link} to="/usage">Usage</Button>
           <Button color="inherit" component={Link} to="/login">Login</Button>
         </Box>
       </Toolbar>
