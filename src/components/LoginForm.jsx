@@ -17,7 +17,7 @@ export default function Form() {
     loginApi({ email, password })
       .then(res => {
         const token = res.data.access_token
-        login(token)
+        login({ token })
         setMessage('Login successful!')
       })
       .catch(err => {

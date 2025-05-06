@@ -1,12 +1,13 @@
-import { createContext, use } from "react";
+import { createContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
 
 // This context will be used to manage the authentication state of the user
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+    const navigate = useNavigate()
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(null);
 
@@ -25,6 +26,7 @@ export const AuthProvider = ({ children }) => {
         setUser(userData);
         localStorage.setItem("token", userData.token);
         setToken(userData.token);
+        navigate('/')
     };
 
     const logout = () => {
