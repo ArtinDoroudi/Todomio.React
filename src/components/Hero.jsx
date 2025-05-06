@@ -15,7 +15,7 @@ export default function Hero() {
     >
       <Stack spacing={3}>
         <span>
-            <img src="public/cat.svg" alt="cat" width={150} height={150} />
+            <img src="public/cat_icon.svg" alt="cat" width={150} height={150} />
         </span>
         <Typography variant="h2" fontWeight="800">
           Todomio
