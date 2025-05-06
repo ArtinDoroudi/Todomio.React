@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar'
+import Navbar from '../components/navbar'
 import RegisterForm from '../components/RegisterForm'
 
 export default function Register() {
