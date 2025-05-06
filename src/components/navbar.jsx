@@ -10,7 +10,7 @@ export default function Navbar() {
         </Typography>
         <Box sx={{ flexGrow: 1 }} />
         <Box sx={{ display: 'flex', gap: 4 }}>
-            <Button color="inherit">
+            <Button color="inherit" component={Link} to="https://github.com/ArtinDoroudi/Todomio.React">
                 <GitHub />
                 <span style={{ marginLeft: '8px' }}>GitHub</span>
             </Button>
