@@ -1,7 +1,7 @@
 import Navbar from "../components/navbar";
-import UsagePanel from "../components/UsagePanel";
+import UsagePanel from "../components/AboutPanel";
 
-export default function Usage() {
+export default function About() {
     
     return (
         <>
