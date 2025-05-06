@@ -2,11 +2,31 @@ import { Box, Typography, Button, Stack , Tab, Tabs, TextField} from '@mui/mater
 import { useState } from 'react'
 import Login from '@mui/icons-material/Login'
 import {Link} from 'react-router-dom'
+import {loginApi} from '../api/auth'
+import axios from 'axios'
+import { useContext } from 'react'
+import { AuthContext } from '../contexts/AuthContext'
 
 export default function Form() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [message, setMessage] = useState('')
+  const { login } = useContext(AuthContext)
 
+  const handleLogin = () => {
+    loginApi({ email, password })
+      .then(res => {
+        const token = res.data.access_token
+        login(token)
+        setMessage('Login successful!')
+      })
+      .catch(err => {
+        console.error(err)
+        setMessage('Login failed. Check your credentials.')
+      })
+  }
+
+  
   return (
     <Box
       sx={{
@@ -26,14 +46,14 @@ export default function Form() {
             Step into your productivity.
           </Typography>
           <TextField
-            id="outlined-basic"
+            id="email-input-login"
             label="Email"
             variant="standard"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
-            id="outlined-basic"
+            id="password-input-login"
             label="Password"
             variant="standard"
             type="password"
@@ -46,9 +66,19 @@ export default function Form() {
               Reset it
             </Button>
           </Typography>
-          <Button variant="contained" size="medium" endIcon={<Login />}>
-            Login
+          <Button
+            variant="contained"
+            size="medium"
+            endIcon={<Login />}
+            onClick={handleLogin}
+            >
+              Login
           </Button>
+          {message !== '' ? (
+            <Typography variant="body2" color="error">
+              {message}
+            </Typography>
+            ) : null}
           <Typography variant="body2" color="grey.600">
             Don't have an account?
             <Button variant="text" size="small" component={Link} to="/register">
